@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "aastage=0": {
+      "model": "authentic_archeology:block/slime_mold_0"
+    },
+    "aastage=1": {
+      "model": "authentic_archeology:block/slime_mold_1"
+    },
+    "aastage=2": {
+      "model": "authentic_archeology:block/slime_mold_2"
+    }
+  }
+}

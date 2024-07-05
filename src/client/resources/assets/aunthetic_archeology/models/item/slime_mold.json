@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "authentic_archeology:block/slime_mold_growth"
+
+
+  }
+}
