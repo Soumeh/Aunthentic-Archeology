@@ -1,4 +1,4 @@
-package com.sindercube.aa.content;
+package com.sindercube.aa.content.block;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;

@@ -1,9 +1,12 @@
 package com.sindercube.aa.registry;
 
-import com.sindercube.aa.AunthenticArcheology;
-import com.sindercube.aa.content.SlimeMoldBlock;
+import com.sindercube.aa.AuthenticArcheology;
+import com.sindercube.aa.content.block.PickableBlock;
+import com.sindercube.aa.content.block.SlimeMoldBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
@@ -12,11 +15,18 @@ public class AABlocks {
     public static void init() {}
 
 
-    public static final Block SLIME_MOLD = new SlimeMoldBlock(AbstractBlock.Settings.create());
+    public static final Block SLIME_MOLD = register("slime_mold", new SlimeMoldBlock(
+            AbstractBlock.Settings.create()
+    ));
+    public static final Block SUSPICIOUS_STONE = register("suspicious_stone", new PickableBlock(
+            AbstractBlock.Settings.create()
+    ));
 
 
-    public Block register(String path, Block block) {
-        return Registry.register(Registries.BLOCK, AunthenticArcheology.of(path), block);
+    public static Block register(String path, Block block) {
+        block = Registry.register(Registries.BLOCK, AuthenticArcheology.of(path), block);
+        Registry.register(Registries.ITEM, AuthenticArcheology.of(path), new BlockItem(block, new Item.Settings()));
+        return block;
     }
 
 }

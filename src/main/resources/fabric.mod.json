@@ -14,8 +14,8 @@
     "license": "W.I.P.",
 
     "entrypoints": {
-        "main": [ "net.insomniacs.manic.Manic" ],
-        "client": [ "net.insomniacs.manic.ManicClient" ]
+        "main": [ "com.sindercube.aa.AuthenticArcheology" ],
+        "client": [ "com.sindercube.aa.client.AuthenticArcheologyClient" ]
     },
     "mixins": [
         "authetic_archeology.mixins.json",

@@ -1,5 +1,8 @@
 package com.sindercube.aa;
 
+import com.sindercube.aa.registry.AABlockEntities;
+import com.sindercube.aa.registry.AABlocks;
+import com.sindercube.aa.registry.AAItems;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -23,9 +26,9 @@ public class AuthenticArcheology implements ModInitializer {
 
 
     public void register() {
-
-
-
+        AABlockEntities.init();
+        AABlocks.init();
+        AAItems.init();
     }
 
 }
