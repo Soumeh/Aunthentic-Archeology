@@ -13,8 +13,8 @@
 
 # Artifacts and Fragments
 - Depending on the biome, each archeology structure is assigned a type of fragment and a set of artifacts that can be found during excavations. Essentially, all structures in one biome share a common list of artifacts and a fragment type for those artifacts.
-- Artifacts can be both decorative and functional. Specific ideas for artifacts and ancient plants will be discussed later.
-- Fragments are used to make copies of their respective set of artifacts. (Ideas also currently unfinished)
+- Artifacts can be both decorative and functional. (Ideas also currently unfinished)
+- Fragments are used to make copies of their respective set of artifacts. 
 
 # Ancient Blocks
 - Unique blocks found in archeology structures.
