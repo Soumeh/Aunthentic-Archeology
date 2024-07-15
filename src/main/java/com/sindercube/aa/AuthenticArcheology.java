@@ -5,10 +5,10 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AunthenticArcheology implements ModInitializer {
+public class AuthenticArcheology implements ModInitializer {
 
-    public static final String MOD_ID = "aunthentic_archeology";
-    public static final Logger LOGGER = LoggerFactory.getLogger("Aunthentic Archeology");
+    public static final String MOD_ID = "authentic_archeology";
+    public static final Logger LOGGER = LoggerFactory.getLogger("Authentic Archeology");
 
     public static Identifier of(String path) {
         return Identifier.of(MOD_ID, path);

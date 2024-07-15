@@ -2,7 +2,7 @@
     "schemaVersion": 1,
     "version": "${mod_version}",
 
-    "id": "aunthetic_archeology",
+    "id": "authetic_archeology",
     "name": "Aunthetic Archeology",
     "description": "W.I.P.",
     "authors": [ "W.I.P." ],
@@ -18,13 +18,13 @@
         "client": [ "net.insomniacs.manic.ManicClient" ]
     },
     "mixins": [
-        "aunthetic_archeology.mixins.json",
+        "authetic_archeology.mixins.json",
         {
-            "config": "aunthetic_archeology.client.mixins.json",
+            "config": "authetic_archeology.client.mixins.json",
             "environment": "client"
         }
     ],
-    "accessWidener": "aunthetic_archeology.accesswidener",
+    "accessWidener": "authetic_archeology.accesswidener",
 
     "custom": {
         "loom:injected_interfaces": {}
