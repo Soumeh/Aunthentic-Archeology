@@ -6,13 +6,11 @@ import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.BrushableBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextParameters;
@@ -36,10 +34,10 @@ import java.util.Objects;
 
 public class PickableBlockEntity extends BlockEntity {
 
-    private static final int MIN_PICKS = 15;
-    private static final int MAX_PICKS = 25;
+    private static final int MIN_PICKS = 20;
+    private static final int MAX_PICKS = 30;
 
-    private static final int LEEWAY = 1;
+    private static final int FORGIVENESS = 1;
 
     private int picksCount;
     private int maxPicks;
@@ -77,7 +75,7 @@ public class PickableBlockEntity extends BlockEntity {
             world.scheduleBlockTick(getPos(), getCachedState().getBlock(), PickableBlock.TICK_DELAY);
         }
 
-        else if (picksCount > maxPicks + LEEWAY) {
+        else if (picksCount > maxPicks + FORGIVENESS) {
             this.markRemoved();
             world.breakBlock(pos, false);
         }
