@@ -3,7 +3,6 @@ package com.sindercube.aa.content.item;
 import com.sindercube.aa.content.block.PickableBlock;
 import com.sindercube.aa.content.blockEntity.PickableBlockEntity;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BrushItem;

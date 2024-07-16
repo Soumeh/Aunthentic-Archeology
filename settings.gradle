@@ -8,4 +8,4 @@ pluginManagement {
         mavenCentral()
     }
 }
-rootProject.name = 'Aunthentic Archeology'
+rootProject.name = 'Authentic Archeology'

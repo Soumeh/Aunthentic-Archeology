@@ -5,6 +5,7 @@ import com.sindercube.aa.content.block.PickableBlock;
 import com.sindercube.aa.content.block.SlimeMoldBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -19,6 +20,7 @@ public class AABlocks {
             AbstractBlock.Settings.create()
     ));
     public static final Block SUSPICIOUS_STONE = register("suspicious_stone", new PickableBlock(
+            Blocks.STONE,
             AbstractBlock.Settings.create()
     ));
 

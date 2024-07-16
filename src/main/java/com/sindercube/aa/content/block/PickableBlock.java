@@ -1,9 +1,11 @@
 package com.sindercube.aa.content.block;
 
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.sindercube.aa.content.blockEntity.PickableBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
@@ -14,18 +16,31 @@ import org.jetbrains.annotations.Nullable;
 
 public class PickableBlock extends BlockWithEntity {
 
-    public static final int TICK_DELAY = 8;
+    public static final MapCodec<PickableBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            Registries.BLOCK.getCodec().fieldOf("turns_into").forGetter(PickableBlock::getBaseBlock),
+            createSettingsCodec()
+    ).apply(instance, PickableBlock::new));
 
     @Override
     protected MapCodec<? extends BlockWithEntity> getCodec() {
-        return createCodec(PickableBlock::new);
+        return CODEC;
+    }
+
+    public static final int TICK_DELAY = 8;
+
+
+    private final Block baseBlock;
+
+    public Block getBaseBlock() {
+        return baseBlock;
     }
 
 
-    public static final IntProperty PICKED = IntProperty.of("picked", 0, 9);
+    public static final IntProperty PICKED = IntProperty.of("picked", 0, 4);
 
-    public PickableBlock(Settings settings) {
+    public PickableBlock(Block baseBlock, Settings settings) {
         super(settings);
+        this.baseBlock = baseBlock;
         this.setDefaultState(this.stateManager.getDefaultState().with(PICKED, 0));
     }
 
@@ -37,12 +52,11 @@ public class PickableBlock extends BlockWithEntity {
 
     public static void updateState(World world, BlockPos pos, int picksCount, int maxPicks) {
         BlockState state = world.getBlockState(pos);
+
         int pickedValue;
-        if (maxPicks == picksCount) pickedValue = 9;
-        else {
-            pickedValue = (int)Math.ceil(((double)picksCount / (double)maxPicks) * 9);
-            if (pickedValue > 0) pickedValue--;
-        }
+        if (maxPicks == picksCount) pickedValue = 4;
+        else pickedValue = (int)Math.ceil(((double)picksCount / (double)maxPicks) * 3);
+
         if (state.get(PICKED) == pickedValue) return;
 
         world.setBlockState(pos, state.with(PICKED, pickedValue));
