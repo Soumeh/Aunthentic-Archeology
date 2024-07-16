@@ -26,16 +26,18 @@ public class PickItem extends Item {
     }
 
     public ActionResult useOnBlock(ItemUsageContext context) {
+        World world = context.getWorld();
+        if (world.isClient) return ActionResult.CONSUME;
+
         PlayerEntity player = context.getPlayer();
         if (player == null) return ActionResult.FAIL;
 
-        World world = context.getWorld();
         BlockPos pos = context.getBlockPos();
         BlockState state = world.getBlockState(pos);
         if (!(state.getBlock() instanceof PickableBlock)) return ActionResult.FAIL;
 
-        BlockEntity entity = world.getBlockEntity(pos);
-        if (!(entity instanceof PickableBlockEntity pickableBlock)) return ActionResult.FAIL;
+        var entity = PickableBlockEntity.find(world, pos);
+        if (entity == null) return ActionResult.FAIL;
 
         ItemStack stack = context.getStack();
         Hand hand = context.getHand();
@@ -45,7 +47,7 @@ public class PickItem extends Item {
             case OFF_HAND -> EquipmentSlot.OFFHAND;
         };
 
-        pickableBlock.pick(world, player, direction);
+        entity.pick(world, pos, player, direction);
         stack.damage(1, player, usedSlot);
         addDustParticles(world, direction, context.getHitPos(), state, player.getRotationVec(0.0F), hand);
         return ActionResult.SUCCESS;

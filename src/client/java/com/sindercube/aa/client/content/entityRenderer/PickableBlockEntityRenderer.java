@@ -1,5 +1,6 @@
 package com.sindercube.aa.client.content.entityRenderer;
 
+import com.sindercube.aa.content.block.PickableBlock;
 import com.sindercube.aa.content.blockEntity.PickableBlockEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -30,7 +31,7 @@ public class PickableBlockEntityRenderer implements BlockEntityRenderer<Pickable
         ItemStack stack = entity.getItem();
         if (stack.isEmpty()) return;
 
-        int picked = entity.getCachedState().get(Properties.DUSTED);
+        int picked = entity.getCachedState().get(PickableBlock.PICKED);
         if (picked <= 0) return;
 
         Direction direction = entity.getHitDirection();

@@ -1,7 +1,37 @@
 {
 	"variants": {
-		"": {
-			"model": "authentic_archeology:block/suspicious_stone"
+		"picked=0": {
+			"model": "authentic_archeology:block/suspicious_stone/0"
+		},
+		"picked=1": {
+			"model": "authentic_archeology:block/suspicious_stone/0"
+		},
+		"picked=2": {
+			"model": "authentic_archeology:block/suspicious_stone/0"
+		},
+
+		"picked=3": {
+			"model": "authentic_archeology:block/suspicious_stone/1"
+		},
+		"picked=4": {
+			"model": "authentic_archeology:block/suspicious_stone/1"
+		},
+		"picked=5": {
+			"model": "authentic_archeology:block/suspicious_stone/1"
+		},
+
+		"picked=6": {
+			"model": "authentic_archeology:block/suspicious_stone/2"
+		},
+		"picked=7": {
+			"model": "authentic_archeology:block/suspicious_stone/2"
+		},
+		"picked=8": {
+			"model": "authentic_archeology:block/suspicious_stone/2"
+		},
+
+		"picked=9": {
+			"model": "authentic_archeology:block/suspicious_stone/3"
 		}
 	}
 }

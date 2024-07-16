@@ -26,9 +26,9 @@ public class AuthenticArcheology implements ModInitializer {
 
 
     public void register() {
-        AABlockEntities.init();
         AABlocks.init();
         AAItems.init();
+        AABlockEntities.init();
     }
 
 }
