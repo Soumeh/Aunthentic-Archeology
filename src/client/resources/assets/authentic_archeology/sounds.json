@@ -1,0 +1,8 @@
+{
+	"item.creeper_whistle.sound.default": {
+		"subtitle": "subtitles.entity.creeper.primed",
+		"sounds": [
+			"random/fuse"
+		]
+	}
+}

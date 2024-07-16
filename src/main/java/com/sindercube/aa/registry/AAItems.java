@@ -1,6 +1,7 @@
 package com.sindercube.aa.registry;
 
 import com.sindercube.aa.AuthenticArcheology;
+import com.sindercube.aa.content.item.CreeperWhistleItem;
 import com.sindercube.aa.content.item.PickItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -13,6 +14,10 @@ public class AAItems {
 
     public static final Item PICK = register("pick", new PickItem(
             new Item.Settings().maxCount(1).maxDamage(256)
+    ));
+    public static final Item CREEPER_WHISTLE = register("creeper_whistle", new CreeperWhistleItem(
+            new Item.Settings().maxCount(1),
+            AATags.CREEPER_WHISTLES
     ));
 
 

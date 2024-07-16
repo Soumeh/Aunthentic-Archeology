@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/cube_all",
+	"textures": {
+		"all": "authentic_archeology:block/suspicious_stone/4"
+	}
+}

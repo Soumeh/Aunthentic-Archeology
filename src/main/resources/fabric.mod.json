@@ -2,8 +2,8 @@
     "schemaVersion": 1,
     "version": "${mod_version}",
 
-    "id": "authetic_archeology",
-    "name": "Aunthetic Archeology",
+    "id": "authentic_archeology",
+    "name": "Authentic Archeology",
     "description": "W.I.P.",
     "authors": [ "W.I.P." ],
     "contact": {
@@ -18,13 +18,13 @@
         "client": [ "com.sindercube.aa.client.AuthenticArcheologyClient" ]
     },
     "mixins": [
-        "authetic_archeology.mixins.json",
+        "authentic_archeology.mixins.json",
         {
-            "config": "authetic_archeology.client.mixins.json",
+            "config": "authentic_archeology.client.mixins.json",
             "environment": "client"
         }
     ],
-    "accessWidener": "authetic_archeology.accesswidener",
+    "accessWidener": "authentic_archeology.accesswidener",
 
     "custom": {
         "loom:injected_interfaces": {}

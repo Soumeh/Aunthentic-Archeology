@@ -49,10 +49,6 @@ public class PickableBlock extends BlockWithEntity {
     }
 
 
-    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-        world.scheduleBlockTick(pos, this, TICK_DELAY);
-    }
-
     @Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         var entity = PickableBlockEntity.find(world, pos);

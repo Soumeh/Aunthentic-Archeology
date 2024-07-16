@@ -11,13 +11,6 @@ repositories {
 		url "https://api.modrinth.com/maven"
 		content { includeGroup "maven.modrinth" }
 	}
-	mavenLocal {
-		content { includeGroup "com.github.InsomniacsMods" }
-	}
-	maven {
-		url "https://jitpack.io"
-		content { includeGroup "com.github.InsomniacsMods" }
-	}
 }
 
 dependencies {

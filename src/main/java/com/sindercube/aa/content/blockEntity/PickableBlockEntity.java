@@ -16,8 +16,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class PickableBlockEntity extends BlockEntity {
 
-    private static final int MAX_PICKS = 15;
-    private static final int MIN_PICKS = 25;
+    private static final int MIN_PICKS = 15;
+    private static final int MAX_PICKS = 25;
 
     private ItemStack item;
     private int picksCount;
@@ -45,6 +45,7 @@ public class PickableBlockEntity extends BlockEntity {
     public void pick(World world, BlockPos pos, PlayerEntity player, Direction hitDirection) {
         this.picksCount++;
         if (picksCount == 1) {
+            this.hitDirection = hitDirection;
             maxPicks = world.random.nextBetween(MIN_PICKS, MAX_PICKS);
             world.scheduleBlockTick(getPos(), getCachedState().getBlock(), PickableBlock.TICK_DELAY);
         }
@@ -68,7 +69,13 @@ public class PickableBlockEntity extends BlockEntity {
 
     public void tick() {
         if (world == null) return;
-        if (picksCount <= 0) return;
+        if (picksCount <= 0) {
+            this.hitDirection = null;
+            return;
+        }
+        if (picksCount == maxPicks) {
+            return;
+        }
 
         this.picksCount--;
         PickableBlock.updateState(world, pos, picksCount, maxPicks);

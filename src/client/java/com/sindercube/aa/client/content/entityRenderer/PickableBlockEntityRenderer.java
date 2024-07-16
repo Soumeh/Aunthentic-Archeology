@@ -37,6 +37,8 @@ public class PickableBlockEntityRenderer implements BlockEntityRenderer<Pickable
         Direction direction = entity.getHitDirection();
         if (direction == null) return;
 
+//        System.out.println("a");
+
         matrixStack.push();
         matrixStack.translate(0.0F, 0.5F, 0.0F);
         float[] fs = this.getTranslation(direction, picked);
