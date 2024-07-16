@@ -4,10 +4,14 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.GoatHornItem;
 import net.minecraft.item.Instrument;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class CreeperWhistleItem extends GoatHornItem {
 
@@ -23,5 +27,8 @@ public class CreeperWhistleItem extends GoatHornItem {
         System.out.println("SCARY");
         return result;
     }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {}
 
 }
