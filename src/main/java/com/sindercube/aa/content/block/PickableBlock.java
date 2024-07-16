@@ -26,7 +26,7 @@ public class PickableBlock extends BlockWithEntity {
         return CODEC;
     }
 
-    public static final int TICK_DELAY = 8;
+    public static final int TICK_DELAY = 2;
 
 
     private final Block baseBlock;

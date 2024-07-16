@@ -39,13 +39,14 @@ public class PickableBlockEntity extends BlockEntity {
     private static final int MIN_PICKS = 15;
     private static final int MAX_PICKS = 25;
 
-    private static final int LEEWAY = 2;
+    private static final int LEEWAY = 1;
 
-    private ItemStack item;
     private int picksCount;
     private int maxPicks;
+    private int degradingTimeoutTicks = 0;
     private int finalTicks = 0;
 
+    private ItemStack item;
     @Nullable private Direction hitDirection;
     @Nullable private RegistryKey<LootTable> lootTable;
     private long lootTableSeed = 0;
@@ -67,6 +68,7 @@ public class PickableBlockEntity extends BlockEntity {
 
     public void pick(World world, BlockPos pos, PlayerEntity player, Direction hitDirection) {
         this.picksCount++;
+        this.degradingTimeoutTicks = 2;
 
         if (picksCount == 1) {
             generateItem(player);
@@ -97,6 +99,12 @@ public class PickableBlockEntity extends BlockEntity {
 
     public void tick() {
         if (world == null) return;
+
+        if (degradingTimeoutTicks >= 0) {
+            degradingTimeoutTicks--;
+            world.scheduleBlockTick(this.getPos(), this.getCachedState().getBlock(), PickableBlock.TICK_DELAY);
+            return;
+        }
 
         if (picksCount <= 0) {
             this.hitDirection = null;
